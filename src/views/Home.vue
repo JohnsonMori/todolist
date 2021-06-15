@@ -1,11 +1,11 @@
 <template>
-  <!-- <div>
+  <div>
     <nav-header></nav-header>
     <nav-main></nav-main>
     <nav-footer></nav-footer>
-  </div> -->
+  </div>
 
-  <div>
+  <!-- <div>
     {{num}}
   </div>
   <div>
@@ -16,7 +16,7 @@
   </div>
   <div>
     {{obj}}
-  </div>
+  </div> -->
 </template>
 
 <script>
