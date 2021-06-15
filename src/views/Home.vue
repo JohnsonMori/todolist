@@ -1,25 +1,26 @@
 <template>
-  <!-- 编写html内容 -->
-  1
+  <div>
+    <nav-header></nav-header>
+    <nav-main></nav-main>
+    <nav-footer></nav-footer>
+  </div>
 </template>
 
 <script>
-// 编写js内容的
+import NavHeader from '@/components/navHeader/NavHeader'
+import NavMain from '@/components/navMain/NavMain'
+import NavFooter from '@/components/navFooter/NavFooter'
 import { defineComponent } from 'vue'
+
 export default defineComponent({
-  name: 'Home', // 组件名称
-  // 接收父组件的数据
-  props: {
-
-  },
-  // 定义子组件
+  name: 'Home',
   components: {
-
+    NavHeader,
+    NavMain,
+    NavFooter
   },
-  setup(props, ctx) {
-    return {
+  setup() {
 
-    }
   }
 })
 </script>
