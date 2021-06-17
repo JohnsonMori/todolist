@@ -1,29 +1,23 @@
 <template>
   <div>
-    <nav-header></nav-header>
+    <!-- <nav-header></nav-header>
     <nav-main></nav-main>
-    <nav-footer></nav-footer>
+    <nav-footer></nav-footer> -->
+    <div>
+      {{num1}} --- {{num2}}
+      两个数的和: {{addNum}}
+    </div>
+    <div>
+      <button @click="add">add</button>
+    </div>
   </div>
-
-  <!-- <div>
-    {{num}}
-  </div>
-  <div>
-    {{name}}
-  </div>
-  <div>
-    {{arr}}
-  </div>
-  <div>
-    {{obj}}
-  </div> -->
 </template>
 
 <script>
 import NavHeader from '@/components/navHeader/NavHeader'
 import NavMain from '@/components/navMain/NavMain'
 import NavFooter from '@/components/navFooter/NavFooter'
-import { defineComponent, ref, reactive, toRefs } from 'vue'
+import { defineComponent, ref, reactive, toRefs, computed } from 'vue'
 
 export default defineComponent({
   name: 'Home',
@@ -33,27 +27,23 @@ export default defineComponent({
     NavFooter
   },
   setup() {
-    // let num = ref(10)
-    // let name = ref('johnson')
-    // let arr = ref(['a', 'b', 'c', 'd'])
-    // let obj = ref({
-    //   age: 20
-    // })
-    let data = reactive({
-      num: 20,
-      name: 'johnson',
-      age: 20,
-      obj: {
-        price: 20
-      },
-      arr: ['a', 'b', 'c', 'd']
+    let num1 = ref(10)
+    let num2 = ref(20)
+    let addNum = computed(() => {
+      // 必须返回一个值
+      // 逻辑代码
+      // 购物车总价
+      return num1.value + num2.value
     })
+    let add = () => {
+      num1.value ++
+      num2.value ++
+    }
     return {
-      // num,
-      // name,
-      // arr,
-      // obj
-      ...toRefs(data)
+      num1,
+      num2,
+      addNum,
+      add
     }
   }
 })
