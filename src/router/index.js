@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Start from '../views/Start.vue'
 
 // 路由的配置数组
 // path: 路由路径 必须以/开头
@@ -8,8 +8,15 @@ import Home from '../views/Home.vue'
 const routes = [
     {
         path: '/',
+        name: 'Start',
+        component: Start,
+    },
+    {
+        path: '/home',
         name: 'Home',
-        component: Home,
+        // 按需引入
+        // 如果没有访问/about 就不会加载这个组件 节约性能
+        component: () => import('../views/Home.vue'),
     },
     {
         path: '/about',

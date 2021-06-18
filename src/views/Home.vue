@@ -1,11 +1,11 @@
 <template>
   <div>
-    <nav-header></nav-header>
+    <!-- <nav-header></nav-header>
     <nav-main></nav-main>
     <nav-footer></nav-footer>
     <div>
       {{list}}
-    </div>
+    </div> -->
     <!-- <div>
       {{num1}} --- {{num2}}
       两个数的和: {{addNum}}
@@ -13,6 +13,7 @@
     <div>
       <button @click="add">add</button>
     </div> -->
+    <button @click="goto">跳转路由</button>
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import NavMain from '@/components/navMain/NavMain'
 import NavFooter from '@/components/navFooter/NavFooter'
 import { defineComponent, ref, reactive, toRefs, computed } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'Home',
@@ -31,10 +33,23 @@ export default defineComponent({
     NavFooter
   },
   setup() {
-    let store = useStore()
-    let list = computed(() => {
-      return store.state.list
-    })
+    // router是全局路由对象
+    let router = useRouter()
+    console.log(router)
+    let goto = () => {
+      // 跳转路由
+      // push函数里面可以传入跳转的路径
+      // back: 回退到上一页
+      // forward: 去到下一页
+      // go(整数) 正数代表前进 负数代表后退
+      router.push({
+        path: '/about'
+      })
+    }
+    // let store = useStore()
+    // let list = computed(() => {
+    //   return store.state.list
+    // })
     // console.log(store)
     // let num1 = ref(10)
     // let num2 = ref(20)
@@ -53,7 +68,8 @@ export default defineComponent({
       // num2,
       // addNum,
       // add
-      list
+      // list
+      goto
     }
   }
 })

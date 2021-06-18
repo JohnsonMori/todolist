@@ -1,23 +1,24 @@
 <template>
-  <div class="about">
-    <h1>这是about组件</h1>
-    <button @click="back">回到首页</button>
-  </div>
+    <!-- 开始页 -->
+    <div>
+        <button @click="start">开始任务</button>
+    </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 export default defineComponent({
-  name: 'About',
+  name: 'Start',
   setup() {
     let router = useRouter()
-    let back = () => {
-      // router.back()
-      router.go(-1)
+    let start = () => {
+        router.push({
+            path: '/home'
+        })
     }
     return {
-      back
+        start
     }
   }
 })
