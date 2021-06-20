@@ -6,10 +6,11 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 export default defineComponent({
   name: 'Start',
+  // 组件创建的过程
   setup() {
     let router = useRouter()
     let name = ref('johnson')
@@ -17,6 +18,19 @@ export default defineComponent({
     let obj = ref({
         msg: 'start'
     })
+    onMounted(() => {
+        // 组件挂载的过程
+        // 数据 dom...
+        // 发请求
+        // 数据初始化的操作 接收路由传递的参数
+        console.log('onMounted')
+    })
+    onUnmounted(() => {
+        // 组件卸载时的生命周期
+        // 清除定时器 清除闭包函数...
+        console.log('onUnmounted')
+    })
+    console.log('setup')
     let start = () => {
         // push 如果是传的对象的形式 就可以传递参数
         // query传参
@@ -34,7 +48,7 @@ export default defineComponent({
             params: {
                 name: name.value,
                 num: num.value,
-                obj: JSON.stringify(obj)
+                obj: JSON.stringify(obj.value)
             }
         })
     }
