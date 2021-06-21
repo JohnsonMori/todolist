@@ -12,11 +12,13 @@
 import { defineComponent, ref } from 'vue'
 export default defineComponent({
     name: 'navHeader',
-    setup() {
+    setup(props, ctx) {
         let value = ref('')
         // 按回车确认
         let enter = () => {
-            console.log(value.value)
+            // 把输入框的内容传递给父组件
+            ctx.emit('add', value.value)
+            // console.log(value.value)
         }
         return {
             value,
