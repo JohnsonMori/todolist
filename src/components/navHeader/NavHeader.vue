@@ -18,6 +18,8 @@ export default defineComponent({
         let enter = () => {
             // 把输入框的内容传递给父组件
             ctx.emit('add', value.value)
+            // 清空输入框
+            value.value = ''
             // console.log(value.value)
         }
         return {
